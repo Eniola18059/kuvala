@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kuvala — Shop Fashion, Phones, Electronics & More in Nigeria</title>
+<meta name="description" content="Kuvala is Nigeria's trusted online marketplace. Fashion, phones, electronics, beauty and more — browse, add to cart, order on WhatsApp.">
+<style>
+:root{
+  --g9:#0b3d1e;--g8:#0f4d27;--g7:#145c30;--g6:#1b7a3e;--g5:#1f8a47;
+  --g1:#e8f5ec;--g0:#f2faf4;
+  --ora:#ff9100;--ora2:#e07e00;--ora0:#fff4e0;
+  --wa:#25d366;--wa2:#1ebe5b;
+  --ink:#111827;--ink2:#374151;--ink3:#6b7280;--ink4:#9ca3af;
+  --bg:#f8f9fa;--white:#fff;--border:#e5e7eb;--border2:#d1d5db;
+  --f:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --ease-out:cubic-bezier(0.16,1,0.3,1);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--f);color:var(--ink);background:var(--white);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+.c{max-width:1200px;margin:0 auto;padding:0 24px;}
+
+/* ========= PRELOADER ========= */
+#pl{position:fixed;inset:0;z-index:9999;background:var(--g8);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;transition:opacity .55s var(--ease-out),visibility .55s;}
+#pl.out{opacity:0;visibility:hidden;pointer-events:none;}
+.pl-k{width:76px;height:76px;}
+.pl-s{fill:none;stroke:#fff;stroke-width:7;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:120;stroke-dashoffset:120;animation:kd .65s var(--ease-out) forwards;}
+.pl-v{animation-delay:0s;}
+.pl-d1{animation-delay:.38s;}
+.pl-d2{animation-delay:.55s;stroke:var(--ora);}
+@keyframes kd{to{stroke-dashoffset:0;}}
+.pl-name{font-size:28px;font-weight:800;color:#fff;letter-spacing:-.5px;opacity:0;animation:pu .45s ease forwards .98s;}
+.pl-name em{color:var(--ora);font-style:normal;}
+.pl-bar{width:100px;height:2.5px;background:rgba(255,255,255,.15);border-radius:99px;overflow:hidden;opacity:0;animation:pu .4s ease forwards 1.15s;}
+.pl-bar::after{content:'';display:block;height:100%;width:40%;background:var(--ora);border-radius:99px;animation:ps 1.1s ease-in-out infinite 1.15s;}
+@keyframes pu{from{opacity:0;transform:translateY(7px);}to{opacity:1;transform:none;}}
+@keyframes ps{0%{transform:translateX(-100%);}100%{transform:translateX(350%);}}
+@media(prefers-reduced-motion:reduce){.pl-s{animation:none;stroke-dashoffset:0;}.pl-name,.pl-bar{animation:none;opacity:1;}.pl-bar::after{animation:none;}}
+
+/* ========= TOPBAR ========= */
+.topbar{background:var(--g9);color:rgba(255,255,255,.8);font-size:12px;letter-spacing:.02em;}
+.topbar .c{display:flex;justify-content:space-between;align-items:center;height:30px;}
+.topbar a{color:rgba(255,255,255,.8);transition:color .15s;}
+.topbar a:hover{color:#fff;}
+.topbar-r{display:flex;gap:20px;align-items:center;}
+.topbar-wa{display:flex;align-items:center;gap:5px;color:var(--wa) !important;font-weight:600;}
+
+/* ========= NAV ========= */
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+.nav .c{display:flex;align-items:center;justify-content:space-between;height:72px;gap:32px;}
+.nav-logo{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.nav-logo-mark{width:36px;height:36px;background:var(--g6);border-radius:9px;display:flex;align-items:center;justify-content:center;}
+.nav-logo-mark svg path{stroke:#fff;}
+.nav-wordmark{font-size:22px;font-weight:800;color:var(--g6);letter-spacing:-.5px;}
+.nav-links{display:flex;align-items:center;gap:6px;}
+.nav-links a{font-size:14px;font-weight:500;color:var(--ink3);padding:8px 14px;border-radius:8px;transition:color .15s,background .15s;}
+.nav-links a:hover{color:var(--ink);background:#f3f4f6;}
+.nav-cta{background:var(--g6) !important;color:#fff !important;font-weight:700 !important;padding:10px 22px !important;}
+.nav-cta:hover{background:var(--g7) !important;}
+
+/* ========= BTN ========= */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:none;font-family:var(--f);font-weight:700;cursor:pointer;border-radius:10px;transition:transform .12s,background .15s,box-shadow .15s;}
+.btn:active{transform:scale(.98);}
+.btn-lg{font-size:15px;padding:15px 28px;}
+.btn-md{font-size:14px;padding:12px 22px;}
+.btn-primary{background:var(--ora);color:#fff;box-shadow:0 6px 20px rgba(255,145,0,.3);}
+.btn-primary:hover{background:var(--ora2);box-shadow:0 8px 28px rgba(255,145,0,.4);}
+.btn-green{background:var(--g6);color:#fff;}
+.btn-green:hover{background:var(--g7);}
+.btn-wa{background:var(--wa);color:#fff;}
+.btn-wa:hover{background:var(--wa2);}
+.btn-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.3);}
+.btn-outline:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.5);}
+
+/* ========= HERO ========= */
+.hero{background:var(--g8);position:relative;overflow:hidden;padding:80px 0 100px;}
+.hero-blob1{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(255,145,0,.12),transparent 65%);top:-300px;right:-200px;pointer-events:none;}
+.hero-blob2{position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.05),transparent 65%);bottom:-200px;left:0;pointer-events:none;}
+.hero-grid{position:relative;display:grid;grid-template-columns:1fr 480px;gap:60px;align-items:center;}
+.hero-left{color:#fff;}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.95);padding:6px 14px;border-radius:99px;font-size:12.5px;font-weight:600;margin-bottom:26px;backdrop-filter:blur(4px);}
+.hero-tag-dot{width:7px;height:7px;border-radius:50%;background:var(--ora);animation:pulse 2s ease-in-out infinite;}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.3);opacity:.7;}}
+.hero h1{font-size:58px;font-weight:800;line-height:1.05;letter-spacing:-1.5px;margin-bottom:20px;}
+.hero h1 .accent{color:var(--ora);}
+.hero h1 .line2{display:block;}
+.hero-sub{color:rgba(255,255,255,.75);font-size:17px;line-height:1.65;max-width:460px;margin-bottom:36px;}
+.hero-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:52px;}
+.hero-proof{display:flex;align-items:center;gap:24px;}
+.hero-proof-item{display:flex;flex-direction:column;}
+.hero-proof-item strong{font-size:22px;font-weight:800;color:#fff;}
+.hero-proof-item span{font-size:11.5px;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.06em;}
+.hero-divider{width:1px;height:36px;background:rgba(255,255,255,.2);}
+
+/* hero right — abstract product mosaic */
+.hero-mosaic{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:12px;height:420px;}
+.mosaic-tile{border-radius:18px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;}
+.mosaic-tile:first-child{grid-row:span 2;background:linear-gradient(145deg,#1f8a47,#0f4d27);}
+.mosaic-tile:nth-child(2){background:linear-gradient(145deg,#1a3a6b,#0d1f40);}
+.mosaic-tile:nth-child(3){background:linear-gradient(145deg,#5b2d8e,#2d1447);}
+.mosaic-tile:nth-child(4){background:linear-gradient(145deg,#b94a28,#5c1f0e);}
+.mosaic-tile-inner{position:relative;z-index:1;text-align:center;}
+.mosaic-glyph{opacity:.9;}
+.mosaic-label{color:rgba(255,255,255,.85);font-size:13px;font-weight:700;margin-top:8px;letter-spacing:.02em;}
+.mosaic-tag{position:absolute;top:12px;right:12px;background:rgba(255,255,255,.15);backdrop-filter:blur(4px);color:#fff;font-size:10.5px;font-weight:700;padding:4px 9px;border-radius:99px;}
+/* stripes texture on tiles */
+.mosaic-tile::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent,transparent 20px,rgba(255,255,255,.025) 20px,rgba(255,255,255,.025) 21px);}
+
+/* ========= MARQUEE ========= */
+.marquee-wrap{background:var(--g6);padding:14px 0;overflow:hidden;}
+.marquee-inner{display:flex;gap:0;width:max-content;animation:marquee 28s linear infinite;}
+.marquee-inner:hover{animation-play-state:paused;}
+.marquee-item{display:flex;align-items:center;gap:10px;padding:0 30px;color:rgba(255,255,255,.9);font-size:13.5px;font-weight:600;white-space:nowrap;}
+.marquee-dot{width:5px;height:5px;border-radius:50%;background:var(--ora);flex-shrink:0;}
+@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* ========= TRUST ========= */
+.trust-section{padding:80px 0;background:var(--white);}
+.trust-section .c{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);border-radius:18px;overflow:hidden;}
+.trust-card{background:var(--white);padding:36px 32px;display:flex;gap:20px;align-items:flex-start;}
+.trust-icon{width:46px;height:46px;border-radius:12px;background:var(--g1);color:var(--g6);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.trust-card h3{font-size:15.5px;font-weight:700;margin-bottom:6px;color:var(--ink);}
+.trust-card p{font-size:13.5px;color:var(--ink3);line-height:1.6;}
+
+/* ========= CATEGORIES ========= */
+.cat-section{padding:80px 0;background:var(--bg);}
+.section-label{font-size:12px;font-weight:700;color:var(--g6);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px;}
+.section-h{font-size:36px;font-weight:800;letter-spacing:-.8px;margin-bottom:48px;color:var(--ink);}
+.section-h span{color:var(--g6);}
+.cat-mosaic{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:260px 260px;gap:14px;}
+.cat-tile{border-radius:20px;overflow:hidden;position:relative;display:flex;align-items:flex-end;padding:24px;color:#fff;text-decoration:none;transition:transform .22s var(--ease-out);}
+.cat-tile:hover{transform:translateY(-4px);}
+.cat-tile::before{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.6) 0%,rgba(0,0,0,0) 55%);z-index:1;}
+.cat-tile::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent,transparent 30px,rgba(255,255,255,.025) 30px,rgba(255,255,255,.025) 31px);}
+.cat-tile-body{position:relative;z-index:2;}
+.cat-tile-tag{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;opacity:.8;margin-bottom:4px;}
+.cat-tile-name{font-size:22px;font-weight:800;line-height:1.1;}
+.cat-tile-cta{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;margin-top:8px;opacity:.85;}
+.cat-tile-cta svg{transition:transform .2s;}
+.cat-tile:hover .cat-tile-cta svg{transform:translateX(4px);}
+.cat-tile-glyph{position:absolute;top:20px;right:20px;z-index:2;opacity:.7;}
+/* tile sizes & colors */
+.ct-fashion{grid-row:span 2;background:linear-gradient(155deg,#1b7a3e,#0b3d1e);}
+.ct-phones{background:linear-gradient(155deg,#1a3a6b,#071428);}
+.ct-elec{background:linear-gradient(155deg,#4a2080,#1d0840);}
+.ct-beauty{background:linear-gradient(155deg,#b94a28,#5c1a0a);}
+.ct-appliances{background:linear-gradient(155deg,#1a5a6b,#072030);}
+.ct-cosmetics{background:linear-gradient(155deg,#7a2060,#380a28);}
+
+/* ========= HOW IT WORKS ========= */
+.how-section{padding:80px 0;background:var(--white);}
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;}
+.how-step{padding:40px 36px;position:relative;}
+.how-step:not(:last-child)::after{content:'';position:absolute;top:52px;right:-1px;width:1px;height:80px;background:linear-gradient(to bottom,transparent,var(--border),transparent);}
+.how-num-wrap{position:relative;margin-bottom:24px;width:fit-content;}
+.how-num{width:50px;height:50px;border-radius:14px;background:var(--g1);color:var(--g6);font-size:20px;font-weight:800;display:flex;align-items:center;justify-content:center;}
+.how-badge{position:absolute;top:-6px;right:-8px;width:20px;height:20px;border-radius:50%;background:var(--ora);display:flex;align-items:center;justify-content:center;}
+.how-step h3{font-size:17px;font-weight:700;margin-bottom:10px;color:var(--ink);}
+.how-step p{font-size:14px;color:var(--ink3);line-height:1.65;}
+.how-step-img{margin-top:20px;background:var(--bg);border-radius:12px;padding:16px;border:1px solid var(--border);}
+
+/* ========= FINAL CTA ========= */
+.cta-section{padding:80px 0;background:var(--bg);}
+.cta-box{background:var(--g8);border-radius:24px;overflow:hidden;display:grid;grid-template-columns:1fr 420px;position:relative;}
+.cta-box::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(255,145,0,.1),transparent 65%);top:-300px;right:-100px;pointer-events:none;}
+.cta-left{padding:64px 56px;position:relative;z-index:1;}
+.cta-left .section-label{color:rgba(255,255,255,.55);}
+.cta-left h2{font-size:38px;font-weight:800;letter-spacing:-1px;color:#fff;margin:12px 0 16px;line-height:1.1;}
+.cta-left p{color:rgba(255,255,255,.7);font-size:15.5px;line-height:1.6;margin-bottom:32px;}
+.cta-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.cta-right{background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;padding:40px;position:relative;z-index:1;}
+/* WhatsApp chat mockup */
+.wa-mockup{width:280px;background:#e5ddd5;border-radius:18px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3);}
+.wa-header{background:#075e54;padding:14px 16px;display:flex;align-items:center;gap:12px;}
+.wa-avatar{width:38px;height:38px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:#fff;flex-shrink:0;}
+.wa-info h4{color:#fff;font-size:14px;font-weight:600;margin-bottom:2px;}
+.wa-info span{color:rgba(255,255,255,.7);font-size:11.5px;}
+.wa-body{padding:16px 12px;display:flex;flex-direction:column;gap:8px;}
+.wa-msg{background:#fff;border-radius:10px 10px 10px 2px;padding:10px 13px;font-size:12.5px;line-height:1.55;color:#111;max-width:90%;box-shadow:0 1px 2px rgba(0,0,0,.1);}
+.wa-msg strong{color:var(--g6);display:block;font-size:11.5px;margin-bottom:4px;}
+.wa-msg-out{background:#d9fdd3;border-radius:10px 10px 2px 10px;margin-left:auto;color:#111;}
+.wa-msg-out .tick{color:#53bdeb;font-size:11px;text-align:right;margin-top:4px;}
+.wa-footer{background:#f0f0f0;padding:10px 12px;display:flex;align-items:center;gap:8px;}
+.wa-input{flex:1;background:#fff;border-radius:99px;padding:8px 14px;font-size:12px;color:var(--ink3);border:none;}
+.wa-send{width:36px;height:36px;border-radius:50%;background:var(--g6);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+
+/* ========= FOOTER ========= */
+.footer{background:var(--g9);color:rgba(255,255,255,.7);}
+.footer-top{padding:56px 0 40px;}
+.footer-top .c{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;}
+.footer-brand .logo-f{font-size:26px;font-weight:800;color:#fff;letter-spacing:-.5px;margin-bottom:12px;display:block;}
+.footer-brand .logo-f em{color:var(--ora);font-style:normal;}
+.footer-brand p{font-size:13.5px;line-height:1.65;max-width:240px;}
+.footer-brand .wa-link{display:inline-flex;align-items:center;gap:8px;background:var(--wa);color:#fff;font-size:13px;font-weight:700;padding:10px 18px;border-radius:9px;margin-top:20px;transition:background .15s;}
+.footer-brand .wa-link:hover{background:var(--wa2);}
+.footer-col h4{font-size:12.5px;font-weight:700;color:rgba(255,255,255,.9);text-transform:uppercase;letter-spacing:.07em;margin-bottom:18px;}
+.footer-col a{display:block;font-size:13.5px;color:rgba(255,255,255,.6);margin-bottom:12px;transition:color .15s;}
+.footer-col a:hover{color:#fff;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding:18px 0;}
+.footer-bottom .c{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:rgba(255,255,255,.4);}
+
+/* ========= TYPEWRITER ========= */
+#tw-word{position:relative;}
+#tw-word::after{content:'|';color:var(--ora);animation:tw-blink .75s step-end infinite;margin-left:2px;font-weight:300;}
+@keyframes tw-blink{0%,100%{opacity:1;}50%{opacity:0;}}
+
+/* ========= SCROLL ANIMATIONS ========= */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease-out),transform .7s var(--ease-out);}
+.reveal.in{opacity:1;transform:none;}
+.reveal-d1{transition-delay:.1s;}
+.reveal-d2{transition-delay:.2s;}
+.reveal-d3{transition-delay:.3s;}
+.reveal-d4{transition-delay:.4s;}
+
+/* ========= RESPONSIVE ========= */
+@media(max-width:1024px){
+  .hero-grid{grid-template-columns:1fr;gap:48px;}
+  .hero-mosaic{height:340px;}
+  .cat-mosaic{grid-template-columns:1fr 1fr;grid-template-rows:auto;}
+  .ct-fashion{grid-row:span 1;}
+  .cat-tile{height:200px;}
+  .cta-box{grid-template-columns:1fr;}
+  .cta-right{display:none;}
+  .footer-top .c{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:720px){
+  .nav .c{gap:16px;}
+  .nav-links a:not(.nav-cta){display:none;}
+  .hero{padding:56px 0 72px;}
+  .hero h1{font-size:38px;letter-spacing:-1px;}
+  .topbar .topbar-l{display:none;}
+  .trust-section .c{grid-template-columns:1fr;gap:2px;}
+  .cat-mosaic{grid-template-columns:1fr;grid-template-rows:auto;}
+  .cat-tile{height:160px;}
+  .how-grid{grid-template-columns:1fr;}
+  .how-step:not(:last-child)::after{display:none;}
+  .cta-left{padding:40px 28px;}
+  .cta-left h2{font-size:28px;}
+  .footer-top .c{grid-template-columns:1fr;}
+  .footer-bottom .c{flex-direction:column;gap:8px;text-align:center;}
+  .hero-proof{gap:16px;}
+}
+</style>
+</head>
+<body>
+
+<!-- PRELOADER -->
+<div id="pl">
+  <svg class="pl-k" viewBox="0 0 100 100" aria-hidden="true">
+    <path class="pl-s pl-v" d="M30 15 L30 85"/>
+    <path class="pl-s pl-d1" d="M30 50 L72 15"/>
+    <path class="pl-s pl-d2" d="M30 50 L72 85"/>
+  </svg>
+  <div class="pl-name">Kuvala<em>.</em></div>
+  <div class="pl-bar"></div>
+</div>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="c">
+    <span class="topbar-l">Nigeria's everyday marketplace — fashion, phones, electronics &amp; more</span>
+    <div class="topbar-r">
+      <a href="tel:+2348063025856">0806 302 5856</a>
+      <a href="https://wa.me/2348063025856" target="_blank" rel="noopener" class="topbar-wa">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.36 5.08L2 22l5.2-1.36a9.9 9.9 0 0 0 4.84 1.27c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="c">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark">
+        <svg width="20" height="20" viewBox="0 0 100 100" fill="none">
+          <path class="pl-s" d="M30 15 L30 85" stroke="#fff" stroke-width="14" stroke-linecap="round"/>
+          <path d="M30 50 L72 15" stroke="#fff" stroke-width="14" stroke-linecap="round"/>
+          <path d="M30 50 L72 85" stroke="rgba(255,145,0,.9)" stroke-width="14" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <span class="nav-wordmark">Kuvala</span>
+    </a>
+    <div class="nav-links">
+      <a href="#categories">Categories</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="shop.html" class="nav-cta btn">Shop Now →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-blob1"></div>
+  <div class="hero-blob2"></div>
+  <div class="c">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <div class="hero-tag">
+          <span class="hero-tag-dot"></span>
+          Nigeria's marketplace — order on WhatsApp
+        </div>
+        <h1>
+          Shop <span class="accent" id="tw-word">anything.</span>
+          <span class="line2">Delivered to you.</span>
+        </h1>
+        <p class="hero-sub">Fashion, phones, electronics, appliances, beauty &amp; more — browse Kuvala, build your cart, and send your order directly on WhatsApp. Simple, fast, trusted.</p>
+        <div class="hero-actions">
+          <a href="shop.html" class="btn btn-primary btn-lg">
+            Start Shopping
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a href="https://wa.me/2348063025856" target="_blank" rel="noopener" class="btn btn-outline btn-lg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.36 5.08L2 22l5.2-1.36a9.9 9.9 0 0 0 4.84 1.27c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.78 14.13c-.25.7-1.45 1.34-2 1.43-.52.08-1.17.12-1.89-.12-.43-.14-.98-.32-1.69-.62-2.98-1.29-4.92-4.28-5.07-4.48-.15-.2-1.21-1.6-1.21-3.05 0-1.45.76-2.16 1.03-2.46.27-.3.6-.37.8-.37.2 0 .4 0 .57.01.18.01.43-.07.67.51.25.6.84 2.06.91 2.21.08.15.13.33.03.53-.1.2-.15.32-.3.49-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.18.3.8 1.32 1.72 2.13 1.18 1.05 2.18 1.38 2.5 1.53.32.15.5.13.69-.05.2-.2.82-.94 1.04-1.27.22-.32.44-.27.74-.16.3.1 1.9.9 2.23 1.06.32.16.54.24.62.38.08.13.08.78-.17 1.49z"/></svg>
+            Ask a Question
+          </a>
+        </div>
+        <div class="hero-proof">
+          <div class="hero-proof-item"><strong>6</strong><span>Categories</span></div>
+          <div class="hero-divider"></div>
+          <div class="hero-proof-item"><strong>100%</strong><span>Real Person</span></div>
+          <div class="hero-divider"></div>
+          <div class="hero-proof-item"><strong>Lagos+</strong><span>Delivery</span></div>
+        </div>
+      </div>
+      <div class="hero-mosaic">
+        <div class="mosaic-tile">
+          <span class="mosaic-tag">Fashion</span>
+          <div class="mosaic-tile-inner">
+            <svg class="mosaic-glyph" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.3"><path d="M6 4 3 7l3 3 1.5-1.5V20h9V8.5L18 10l3-3-3-3-3 2H9L6 4z"/></svg>
+            <div class="mosaic-label">Fashion</div>
+          </div>
+        </div>
+        <div class="mosaic-tile">
+          <span class="mosaic-tag">Phones</span>
+          <div class="mosaic-tile-inner">
+            <svg class="mosaic-glyph" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.3"><rect x="7" y="2" width="10" height="20" rx="2"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+            <div class="mosaic-label">Phones &amp; Tablets</div>
+          </div>
+        </div>
+        <div class="mosaic-tile">
+          <span class="mosaic-tag">Electronics</span>
+          <div class="mosaic-tile-inner">
+            <svg class="mosaic-glyph" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.3"><rect x="2" y="4" width="20" height="14" rx="2"/><line x1="8" y1="22" x2="16" y2="22"/><line x1="12" y1="18" x2="12" y2="22"/></svg>
+            <div class="mosaic-label">Electronics</div>
+          </div>
+        </div>
+        <div class="mosaic-tile">
+          <span class="mosaic-tag">Beauty</span>
+          <div class="mosaic-tile-inner">
+            <svg class="mosaic-glyph" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.3"><path d="M12 2v6M9 5h6"/><path d="M7 11h10l1 10a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2l1-10z"/></svg>
+            <div class="mosaic-label">Health &amp; Beauty</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-inner" aria-hidden="true">
+    <span class="marquee-item"><span class="marquee-dot"></span>Fashion &amp; Shoes</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Phones &amp; Tablets</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Electronics</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Home Appliances</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Health &amp; Beauty</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Cosmetics</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Fast Lagos Delivery</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Order on WhatsApp</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Real Person Support</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Fashion &amp; Shoes</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Phones &amp; Tablets</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Electronics</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Home Appliances</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Health &amp; Beauty</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Cosmetics</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Fast Lagos Delivery</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Order on WhatsApp</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Real Person Support</span>
+  </div>
+</div>
+
+<!-- TRUST -->
+<section class="trust-section">
+  <div class="c">
+    <div class="trust-card reveal">
+      <div class="trust-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <div>
+        <h3>Real Person on Chat</h3>
+        <p>No bots. Your order goes straight to WhatsApp — we sort availability, price, and delivery together with you.</p>
+      </div>
+    </div>
+    <div class="trust-card reveal reveal-d1">
+      <div class="trust-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg>
+      </div>
+      <div>
+        <h3>Fast, Reliable Delivery</h3>
+        <p>We deliver across Lagos and beyond. You get real-time updates, not a tracking number that goes silent.</p>
+      </div>
+    </div>
+    <div class="trust-card reveal reveal-d2">
+      <div class="trust-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 4 5v6c0 5 3.5 8.5 8 11 4.5-2.5 8-6 8-11V5l-8-3z"/></svg>
+      </div>
+      <div>
+        <h3>Honest, Fair Prices</h3>
+        <p>Fashion, electronics, beauty and more at prices that make sense — no inflated markups, no hidden charges.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="cat-section" id="categories">
+  <div class="c">
+    <p class="section-label reveal">Browse by category</p>
+    <h2 class="section-h reveal reveal-d1">Find exactly <span>what you need</span></h2>
+    <div class="cat-mosaic">
+      <a href="shop.html" class="cat-tile ct-fashion reveal">
+        <svg class="cat-tile-glyph" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="1"><path d="M6 4 3 7l3 3 1.5-1.5V20h9V8.5L18 10l3-3-3-3-3 2H9L6 4z"/></svg>
+        <div class="cat-tile-body">
+          <p class="cat-tile-tag">Browse</p>
+          <h3 class="cat-tile-name">Fashion &amp; Shoes</h3>
+          <span class="cat-tile-cta">Shop now <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </a>
+      <a href="shop.html" class="cat-tile ct-phones reveal reveal-d1">
+        <svg class="cat-tile-glyph" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1"><rect x="7" y="2" width="10" height="20" rx="2"/></svg>
+        <div class="cat-tile-body">
+          <p class="cat-tile-tag">Browse</p>
+          <h3 class="cat-tile-name">Phones &amp; Tablets</h3>
+          <span class="cat-tile-cta">Shop now <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </a>
+      <a href="shop.html" class="cat-tile ct-elec reveal reveal-d2">
+        <svg class="cat-tile-glyph" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1"><rect x="2" y="4" width="20" height="14" rx="2"/><line x1="8" y1="22" x2="16" y2="22"/></svg>
+        <div class="cat-tile-body">
+          <p class="cat-tile-tag">Browse</p>
+          <h3 class="cat-tile-name">Electronics</h3>
+          <span class="cat-tile-cta">Shop now <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </a>
+      <a href="shop.html" class="cat-tile ct-beauty reveal reveal-d1">
+        <svg class="cat-tile-glyph" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1"><path d="M12 2v6M9 5h6"/><path d="M7 11h10l1 10a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2z"/></svg>
+        <div class="cat-tile-body">
+          <p class="cat-tile-tag">Browse</p>
+          <h3 class="cat-tile-name">Health &amp; Beauty</h3>
+          <span class="cat-tile-cta">Shop now <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </a>
+      <a href="shop.html" class="cat-tile ct-appliances reveal reveal-d2">
+        <svg class="cat-tile-glyph" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="5" y1="10" x2="19" y2="10"/></svg>
+        <div class="cat-tile-body">
+          <p class="cat-tile-tag">Browse</p>
+          <h3 class="cat-tile-name">Appliances</h3>
+          <span class="cat-tile-cta">Shop now <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </a>
+      <a href="shop.html" class="cat-tile ct-cosmetics reveal reveal-d3">
+        <svg class="cat-tile-glyph" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1"><rect x="8" y="8" width="8" height="13" rx="2"/><path d="M10 8V5a2 2 0 1 1 4 0v3"/></svg>
+        <div class="cat-tile-body">
+          <p class="cat-tile-tag">Browse</p>
+          <h3 class="cat-tile-name">Cosmetics</h3>
+          <span class="cat-tile-cta">Shop now <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how-it-works">
+  <div class="c">
+    <p class="section-label reveal">Simple process</p>
+    <h2 class="section-h reveal reveal-d1">Shopping that <span>actually makes sense</span></h2>
+    <div class="how-grid">
+      <div class="how-step reveal">
+        <div class="how-num-wrap">
+          <div class="how-num">1</div>
+          <div class="how-badge">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+        </div>
+        <h3>Browse &amp; Add to Cart</h3>
+        <p>Explore all categories — fashion, phones, electronics, beauty and more. Add everything you want to your cart before checking out.</p>
+      </div>
+      <div class="how-step reveal reveal-d1">
+        <div class="how-num-wrap">
+          <div class="how-num">2</div>
+          <div class="how-badge">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+        </div>
+        <h3>Send Your Order</h3>
+        <p>Tap "Order on WhatsApp" — your full cart becomes a pre-formatted message sent straight to us. No forms, no accounts needed.</p>
+      </div>
+      <div class="how-step reveal reveal-d2">
+        <div class="how-num-wrap">
+          <div class="how-num">3</div>
+          <div class="how-badge">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+        </div>
+        <h3>Confirm &amp; Receive</h3>
+        <p>We confirm stock, agree on payment and delivery details with you on chat. Your order gets dispatched and arrives fast.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-section">
+  <div class="c">
+    <div class="cta-box reveal">
+      <div class="cta-left">
+        <p class="section-label">Ready to shop?</p>
+        <h2>Your next favorite thing is waiting.</h2>
+        <p>Jump into the store — hundreds of products across fashion, electronics, beauty and more. If you can't find it, just ask us on WhatsApp.</p>
+        <div class="cta-btns">
+          <a href="shop.html" class="btn btn-primary btn-lg">
+            Browse the Store
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a href="https://wa.me/2348063025856" target="_blank" rel="noopener" class="btn btn-wa btn-lg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.36 5.08L2 22l5.2-1.36a9.9 9.9 0 0 0 4.84 1.27c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.78 14.13c-.25.7-1.45 1.34-2 1.43-.52.08-1.17.12-1.89-.12-.43-.14-.98-.32-1.69-.62-2.98-1.29-4.92-4.28-5.07-4.48-.15-.2-1.21-1.6-1.21-3.05 0-1.45.76-2.16 1.03-2.46.27-.3.6-.37.8-.37.2 0 .4 0 .57.01.18.01.43-.07.67.51.25.6.84 2.06.91 2.21.08.15.13.33.03.53-.1.2-.15.32-.3.49-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.18.3.8 1.32 1.72 2.13 1.18 1.05 2.18 1.38 2.5 1.53.32.15.5.13.69-.05.2-.2.82-.94 1.04-1.27.22-.32.44-.27.74-.16.3.1 1.9.9 2.23 1.06.32.16.54.24.62.38.08.13.08.78-.17 1.49z"/></svg>
+            Chat Us First
+          </a>
+        </div>
+      </div>
+      <div class="cta-right">
+        <div class="wa-mockup">
+          <div class="wa-header">
+            <div class="wa-avatar">K</div>
+            <div class="wa-info"><h4>Kuvala</h4><span>Online · Usually replies fast</span></div>
+          </div>
+          <div class="wa-body">
+            <div class="wa-msg">
+              <strong>Kuvala 🛒</strong>
+              Hi! I'd like to order:<br><br>
+              • Men's Sneakers x1 — ₦18,500<br>
+              • Bluetooth Headphones x1 — ₦9,500<br><br>
+              Total: <strong>₦28,000</strong>
+            </div>
+            <div class="wa-msg wa-msg-out">
+              Hello! ✅ Both items are available. Shall I confirm your delivery address?
+              <div class="tick">✓✓</div>
+            </div>
+          </div>
+          <div class="wa-footer">
+            <div class="wa-input">Type a message…</div>
+            <div class="wa-send">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="c">
+      <div class="footer-brand">
+        <span class="logo-f">Kuvala<em>.</em></span>
+        <p>Nigeria's everyday marketplace — fashion, phones, electronics, beauty and more. One chat, delivered to your door.</p>
+        <a href="https://wa.me/2348063025856" target="_blank" rel="noopener" class="wa-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.85.5 3.58 1.36 5.08L2 22l5.2-1.36a9.9 9.9 0 0 0 4.84 1.27c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2z"/></svg>
+          Chat on WhatsApp
+        </a>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <a href="shop.html">Fashion &amp; Shoes</a>
+        <a href="shop.html">Phones &amp; Tablets</a>
+        <a href="shop.html">Electronics</a>
+        <a href="shop.html">Appliances</a>
+        <a href="shop.html">Health &amp; Beauty</a>
+        <a href="shop.html">Cosmetics</a>
+      </div>
+      <div class="footer-col">
+        <h4>Help</h4>
+        <a href="#how-it-works">How to Order</a>
+        <a href="#how-it-works">Delivery Info</a>
+        <a href="https://wa.me/2348063025856" target="_blank" rel="noopener">Returns &amp; Support</a>
+        <a href="https://wa.me/2348063025856" target="_blank" rel="noopener">Contact Us</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:+2348063025856">0806 302 5856</a>
+        <a href="tel:+2349012234862">0901 223 4862</a>
+        <a href="https://wa.me/2348063025856" target="_blank" rel="noopener">WhatsApp Us</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="c">
+      <span>&copy; 2026 Kuvala. All rights reserved.</span>
+      <span>Made in Lagos 🇳🇬</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Typewriter
+(function(){
+  const words = ["anything.","fashion.","phones.","electronics.","beauty.","appliances.","cosmetics."];
+  const el = document.getElementById("tw-word");
+  if(!el) return;
+  let wi=0, ci=0, deleting=false;
+  function tick(){
+    const word = words[wi];
+    el.textContent = deleting ? word.slice(0,ci--) : word.slice(0,ci++);
+    let delay = deleting ? 60 : 95;
+    if(!deleting && ci > word.length){ deleting=true; delay=1800; }
+    else if(deleting && ci < 0){ deleting=false; wi=(wi+1)%words.length; ci=0; delay=320; }
+    setTimeout(tick, delay);
+  }
+  // Start after preloader
+  setTimeout(tick, 2200);
+})();
+
+// Preloader
+window.addEventListener("load",()=>{
+  setTimeout(()=>document.getElementById("pl").classList.add("out"),1700);
+});
+
+// Scroll reveal
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");obs.unobserve(e.target);}});
+},{threshold:0.12});
+document.querySelectorAll(".reveal").forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
