@@ -91,7 +91,10 @@ button{font-family:var(--f);cursor:pointer;}
 .nav-actions{display:flex;gap:4px;flex-shrink:0;}
 .nav-icon-btn{background:none;border:none;color:#fff;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:10.5px;padding:6px 10px;border-radius:9px;position:relative;transition:background .15s;cursor:pointer;}
 .nav-icon-btn:hover{background:rgba(255,255,255,.12);}
-.cart-badge{position:absolute;top:0;right:4px;background:var(--ora);color:#fff;font-size:9px;font-weight:800;min-width:16px;height:16px;border-radius:99px;display:flex;align-items:center;justify-content:center;padding:0 3px;}
+.cart-badge{position:absolute;top:0;right:4px;background:var(--ora);color:#fff;font-size:9px;font-weight:800;min-width:16px;height:16px;border-radius:99px;display:flex;align-items:center;justify-content:center;padding:0 3px;opacity:0;transform:scale(0);transition:opacity .2s,transform .25s cubic-bezier(.34,1.56,.64,1);}
+.cart-badge.has-items{opacity:1;transform:scale(1);}
+.cart-badge.bump{animation:badge-bump .3s cubic-bezier(.34,1.56,.64,1);}
+@keyframes badge-bump{0%{transform:scale(1);}50%{transform:scale(1.45);}100%{transform:scale(1);}}
 
 /* category strip */
 .cat-strip{background:var(--g7);overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
@@ -664,7 +667,9 @@ function changeQty(id, d) {
 function updateCart() {
   const total = cart.reduce((s,i)=>s+i.qty*i.price,0);
   const qty = cart.reduce((s,i)=>s+i.qty,0);
-  document.getElementById("cartCount").textContent = qty;
+  const badge = document.getElementById("cartCount");
+  badge.textContent = qty;
+  if(qty > 0){ badge.classList.add("has-items"); badge.classList.remove("bump"); void badge.offsetWidth; badge.classList.add("bump"); } else { badge.classList.remove("has-items"); }
   document.getElementById("cartTotal").textContent = fmt(total);
   const btn = document.getElementById("checkoutBtn");
   btn.disabled = cart.length === 0;
@@ -706,7 +711,22 @@ document.querySelectorAll(".cat-strip-inner a[data-cat]").forEach(a=>{
     activeFilter = a.dataset.cat;
     const titles = {all:"All Products",fashion:"Fashion & Shoes",phones:"Phones & Tablets",electronics:"Electronics",appliances:"Appliances",beauty:"Health & Beauty",cosmetics:"Cosmetics",deals:"🔥 Today's Deals"};
     document.getElementById("sectionTitle").textContent = titles[activeFilter]||"Products";
-    renderProducts();
+    // Auto-filter from URL param e.g. shop.html?cat=electronics
+(function(){
+  const params = new URLSearchParams(window.location.search);
+  const cat = params.get('cat');
+  if(cat){
+    const link = document.querySelector('.cat-strip-inner a[data-cat="'+cat+'"]');
+    if(link){
+      document.querySelectorAll('.cat-strip-inner a').forEach(x=>x.classList.remove('active'));
+      link.classList.add('active');
+      activeFilter = cat;
+      const titles = {all:"All Products",fashion:"Fashion & Shoes",phones:"Phones & Tablets",electronics:"Electronics",appliances:"Appliances",beauty:"Health & Beauty",cosmetics:"Cosmetics",deals:"🔥 Today's Deals"};
+      document.getElementById('sectionTitle').textContent = titles[cat]||'Products';
+    }
+  }
+})();
+renderProducts();
   });
 });
 
