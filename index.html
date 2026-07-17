@@ -217,31 +217,96 @@ img{max-width:100%;display:block;}
 
 /* ========= RESPONSIVE ========= */
 @media(max-width:1024px){
-  .hero-grid{grid-template-columns:1fr;gap:48px;}
-  .hero-mosaic{height:340px;}
-  .cat-mosaic{grid-template-columns:1fr 1fr;grid-template-rows:auto;}
+  .hero-grid{grid-template-columns:1fr;gap:40px;}
+  .hero-mosaic{height:260px;grid-template-columns:repeat(4,1fr);grid-template-rows:1fr;}
+  .mosaic-tile:first-child{grid-row:span 1;}
+  .cat-mosaic{grid-template-columns:1fr 1fr;grid-template-rows:auto;height:auto;}
   .ct-fashion{grid-row:span 1;}
   .cat-tile{height:200px;}
   .cta-box{grid-template-columns:1fr;}
   .cta-right{display:none;}
-  .footer-top .c{grid-template-columns:1fr 1fr;}
+  .footer-top .c{grid-template-columns:1fr 1fr;gap:28px;}
 }
-@media(max-width:720px){
-  .nav .c{gap:16px;}
-  .nav-links a:not(.nav-cta){display:none;}
-  .hero{padding:56px 0 72px;}
-  .hero h1{font-size:38px;letter-spacing:-1px;}
+@media(max-width:768px){
+  .c{padding:0 16px;}
   .topbar .topbar-l{display:none;}
-  .trust-section .c{grid-template-columns:1fr;gap:2px;}
-  .cat-mosaic{grid-template-columns:1fr;grid-template-rows:auto;}
-  .cat-tile{height:160px;}
-  .how-grid{grid-template-columns:1fr;}
+  .nav .c{gap:12px;height:60px;}
+  .nav-links a:not(.nav-cta){display:none;}
+  .nav-wordmark{font-size:20px;}
+  .hero{padding:44px 0 56px;}
+  .hero h1{font-size:34px;letter-spacing:-.8px;}
+  .hero-sub{font-size:15px;}
+  .hero-actions{flex-wrap:wrap;}
+  .hero-mosaic{height:200px;grid-template-columns:repeat(4,1fr);grid-template-rows:1fr;}
+  .mosaic-tile:first-child{grid-row:span 1;}
+  .hero-proof{gap:14px;margin-top:32px;}
+  .hero-proof-item strong{font-size:18px;}
+  .trust-section{padding:44px 0;}
+  .trust-section .c{grid-template-columns:1fr;gap:0;}
+  .trust-card{padding:22px 20px;}
+  .cat-section{padding:44px 0;}
+  .section-h{font-size:24px;margin-bottom:24px;}
+  .cat-mosaic{grid-template-columns:1fr 1fr;height:auto;}
+  .cat-tile{height:170px;}
+  .cat-tile-name{font-size:16px;}
+  .how-section{padding:44px 0;}
+  .how-grid{grid-template-columns:1fr;gap:0;}
+  .how-step{padding:26px 24px;}
   .how-step:not(:last-child)::after{display:none;}
-  .cta-left{padding:40px 28px;}
-  .cta-left h2{font-size:28px;}
+  .how-step:not(:last-child){border-bottom:1px solid var(--border);}
+  .cta-section{padding:44px 0;}
+  .cta-left{padding:36px 28px;}
+  .cta-left h2{font-size:24px;}
+  .cta-btns{flex-direction:column;}
+  .cta-btns .btn{width:100%;justify-content:center;}
+  .footer-top{padding:36px 0 20px;}
+  .footer-top .c{grid-template-columns:1fr 1fr;gap:24px;}
+  .footer-bottom .c{flex-direction:column;gap:6px;text-align:center;}
+}
+@media(max-width:480px){
+  .c{padding:0 14px;}
+  .nav .c{height:54px;gap:8px;}
+  .nav-logo-mark{display:none;}
+  .nav-wordmark{font-size:18px;}
+  .nav-cta{padding:8px 14px !important;font-size:13px !important;}
+  .hero{padding:32px 0 44px;}
+  .hero h1{font-size:26px;letter-spacing:-.5px;}
+  .hero-tag{font-size:11px;padding:5px 11px;margin-bottom:16px;}
+  .hero-sub{font-size:13.5px;margin-bottom:22px;}
+  .hero-actions{flex-direction:column;gap:10px;}
+  .hero-actions .btn,.btn-lg{width:100%;justify-content:center;font-size:14px;padding:14px 18px;}
+  .hero-proof{gap:10px;}
+  .hero-divider{height:24px;}
+  .hero-proof-item strong{font-size:16px;}
+  .hero-proof-item span{font-size:10px;}
+  .hero-mosaic{grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;height:220px;}
+  .mosaic-label{font-size:10px;}
+  .mosaic-tag{font-size:9px;padding:3px 7px;}
+  .trust-section{padding:28px 0;}
+  .trust-card{flex-direction:column;gap:10px;padding:18px 16px;align-items:flex-start;}
+  .cat-section{padding:28px 0;}
+  .section-h{font-size:20px;margin-bottom:16px;}
+  .cat-mosaic{grid-template-columns:1fr 1fr;gap:10px;}
+  .cat-tile{height:130px;padding:14px;}
+  .cat-tile-name{font-size:14px;}
+  .cat-tile-tag{font-size:9px;}
+  .cat-tile-cta{display:none;}
+  .how-section{padding:28px 0;}
+  .how-step{padding:20px 14px;}
+  .how-step h3{font-size:15px;}
+  .how-step p{font-size:13px;}
+  .cta-section{padding:28px 0;}
+  .cta-left{padding:26px 18px;}
+  .cta-left h2{font-size:20px;}
+  .cta-left p{font-size:13.5px;margin-bottom:22px;}
   .footer-top .c{grid-template-columns:1fr;}
-  .footer-bottom .c{flex-direction:column;gap:8px;text-align:center;}
-  .hero-proof{gap:16px;}
+  .f-brand p{max-width:100%;}
+  .footer-bottom .c{padding:14px 0;}
+}
+@media(max-width:360px){
+  .hero h1{font-size:22px;}
+  .cat-tile{height:110px;}
+  .cat-tile-name{font-size:12px;}
 }
 </style>
 </head>
@@ -424,7 +489,7 @@ img{max-width:100%;display:block;}
     <p class="section-label reveal">Browse by category</p>
     <h2 class="section-h reveal reveal-d1">Find exactly <span>what you need</span></h2>
     <div class="cat-mosaic">
-      <a href="shop.html" class="cat-tile ct-fashion reveal">
+      <a href="shop.html?cat=fashion" class="cat-tile ct-fashion reveal">
         <svg class="cat-tile-glyph" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="1"><path d="M6 4 3 7l3 3 1.5-1.5V20h9V8.5L18 10l3-3-3-3-3 2H9L6 4z"/></svg>
         <div class="cat-tile-body">
           <p class="cat-tile-tag">Browse</p>
@@ -432,7 +497,7 @@ img{max-width:100%;display:block;}
           <span class="cat-tile-cta">Shop now <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
         </div>
       </a>
-      <a href="shop.html" class="cat-tile ct-phones reveal reveal-d1">
+      <a href="shop.html?cat=phones" class="cat-tile ct-phones reveal reveal-d1">
         <svg class="cat-tile-glyph" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1"><rect x="7" y="2" width="10" height="20" rx="2"/></svg>
         <div class="cat-tile-body">
           <p class="cat-tile-tag">Browse</p>
@@ -440,7 +505,7 @@ img{max-width:100%;display:block;}
           <span class="cat-tile-cta">Shop now <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
         </div>
       </a>
-      <a href="shop.html" class="cat-tile ct-elec reveal reveal-d2">
+      <a href="shop.html?cat=electronics" class="cat-tile ct-elec reveal reveal-d2">
         <svg class="cat-tile-glyph" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1"><rect x="2" y="4" width="20" height="14" rx="2"/><line x1="8" y1="22" x2="16" y2="22"/></svg>
         <div class="cat-tile-body">
           <p class="cat-tile-tag">Browse</p>
@@ -448,7 +513,7 @@ img{max-width:100%;display:block;}
           <span class="cat-tile-cta">Shop now <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
         </div>
       </a>
-      <a href="shop.html" class="cat-tile ct-beauty reveal reveal-d1">
+      <a href="shop.html?cat=beauty" class="cat-tile ct-beauty reveal reveal-d1">
         <svg class="cat-tile-glyph" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1"><path d="M12 2v6M9 5h6"/><path d="M7 11h10l1 10a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2z"/></svg>
         <div class="cat-tile-body">
           <p class="cat-tile-tag">Browse</p>
@@ -456,7 +521,7 @@ img{max-width:100%;display:block;}
           <span class="cat-tile-cta">Shop now <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
         </div>
       </a>
-      <a href="shop.html" class="cat-tile ct-appliances reveal reveal-d2">
+      <a href="shop.html?cat=appliances" class="cat-tile ct-appliances reveal reveal-d2">
         <svg class="cat-tile-glyph" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="5" y1="10" x2="19" y2="10"/></svg>
         <div class="cat-tile-body">
           <p class="cat-tile-tag">Browse</p>
@@ -464,7 +529,7 @@ img{max-width:100%;display:block;}
           <span class="cat-tile-cta">Shop now <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
         </div>
       </a>
-      <a href="shop.html" class="cat-tile ct-cosmetics reveal reveal-d3">
+      <a href="shop.html?cat=cosmetics" class="cat-tile ct-cosmetics reveal reveal-d3">
         <svg class="cat-tile-glyph" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1"><rect x="8" y="8" width="8" height="13" rx="2"/><path d="M10 8V5a2 2 0 1 1 4 0v3"/></svg>
         <div class="cat-tile-body">
           <p class="cat-tile-tag">Browse</p>
@@ -580,12 +645,12 @@ img{max-width:100%;display:block;}
       </div>
       <div class="footer-col">
         <h4>Shop</h4>
-        <a href="shop.html">Fashion &amp; Shoes</a>
-        <a href="shop.html">Phones &amp; Tablets</a>
-        <a href="shop.html">Electronics</a>
-        <a href="shop.html">Appliances</a>
-        <a href="shop.html">Health &amp; Beauty</a>
-        <a href="shop.html">Cosmetics</a>
+        <a href="shop.html?cat=fashion">Fashion &amp; Shoes</a>
+        <a href="shop.html?cat=phones">Phones &amp; Tablets</a>
+        <a href="shop.html?cat=electronics">Electronics</a>
+        <a href="shop.html?cat=appliances">Appliances</a>
+        <a href="shop.html?cat=beauty">Health &amp; Beauty</a>
+        <a href="shop.html?cat=cosmetics">Cosmetics</a>
       </div>
       <div class="footer-col">
         <h4>Help</h4>
