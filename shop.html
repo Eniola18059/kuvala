@@ -3,8 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shop — Kuvala | Fashion, Phones, Electronics & More</title>
-<meta name="description" content="Browse Kuvala's full store — fashion, phones, electronics, appliances, health & beauty, cosmetics. Order on WhatsApp, delivered fast.">
+<title>Shop Online in Nigeria | Fashion, Phones, Electronics & More — Kuvala</title>
+<meta name="description" content="Shop fashion, phones, electronics, appliances, health & beauty and cosmetics on Kuvala — Nigeria's trusted online marketplace. Order on WhatsApp, fast delivery across Lagos.">
+<meta name="keywords" content="online shopping Nigeria, buy phones Lagos, fashion online Nigeria, electronics marketplace, Kuvala shop, order on WhatsApp Nigeria, cheap electronics Lagos">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Kuvala">
+<link rel="canonical" href="https://kuvala.com/shop.html">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Shop Online in Nigeria | Fashion, Phones, Electronics — Kuvala">
+<meta property="og:description" content="Browse Kuvala — Nigeria's trusted online marketplace. Fashion, phones, electronics, beauty & more. Order on WhatsApp, delivered fast.">
+<meta property="og:url" content="https://kuvala.com/shop.html">
+<meta property="og:site_name" content="Kuvala">
+<meta property="og:image" content="https://kuvala.com/og-image.jpg">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Shop Online in Nigeria | Kuvala">
+<meta name="twitter:description" content="Fashion, phones, electronics, beauty & more — order on WhatsApp, fast Lagos delivery.">
+<!-- Structured Data -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Store","name":"Kuvala","url":"https://kuvala.com","description":"Nigeria's trusted online marketplace for fashion, phones, electronics, appliances, health & beauty and cosmetics.","address":{"@type":"PostalAddress","addressLocality":"Lagos","addressCountry":"NG"},"contactPoint":{"@type":"ContactPoint","telephone":"+2348063025856","contactType":"customer service","availableLanguage":"English"},"sameAs":["https://wa.me/2348063025856"]}
+</script>
 <style>
 :root{
   --g9:#0b3d1e;--g8:#0f4d27;--g7:#145c30;--g6:#1b7a3e;--g5:#1f8a47;
@@ -216,6 +235,13 @@ button{font-family:var(--f);cursor:pointer;}
 .footer-btm .c{display:flex;justify-content:space-between;font-size:12.5px;color:rgba(255,255,255,.4);}
 
 /* ===== RESPONSIVE ===== */
+
+/* ===== TOAST ===== */
+#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:12px 22px;border-radius:99px;font-size:13.5px;font-weight:600;z-index:600;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;display:flex;align-items:center;gap:10px;white-space:nowrap;box-shadow:0 8px 24px rgba(0,0,0,.25);}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+#toast .toast-check{width:20px;height:20px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+@media(max-width:480px){#toast{font-size:12.5px;padding:10px 18px;bottom:16px;}}
+
 /* === Tablet landscape 1024 === */
 @media(max-width:1024px){
   .product-grid{grid-template-columns:repeat(3,1fr);}
@@ -544,9 +570,9 @@ button{font-family:var(--f);cursor:pointer;}
       </div>
       <div class="f-col">
         <h4>Help</h4>
-        <a href="#">How to Order</a>
-        <a href="#">Delivery Info</a>
-        <a href="#">Returns</a>
+        <a href="about.html">About Us</a>
+        <a href="returns.html">Returns & Refunds</a>
+        <a href="terms.html">Terms & Conditions</a>
         <a href="https://wa.me/2348063025856" target="_blank" rel="noopener">Contact Support</a>
       </div>
       <div class="f-col">
@@ -560,8 +586,23 @@ button{font-family:var(--f);cursor:pointer;}
   <div class="footer-btm"><div class="c"><span>&copy; 2026 Kuvala. All rights reserved.</span><span>Made in Lagos 🇳🇬</span></div></div>
 </footer>
 
+<div id="toast">
+  <span class="toast-check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+  <span id="toastMsg">Added to cart</span>
+</div>
+
 <script>
 const WA = "2348063025856";
+
+let toastTimer;
+function showToast(name){
+  const t = document.getElementById('toast');
+  document.getElementById('toastMsg').textContent = '"' + name.substring(0,28) + (name.length>28?'…':'') + '" added to cart';
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.classList.remove('show'), 2200);
+}
+
 
 // SVG icons per category
 const ICONS = {
@@ -654,6 +695,7 @@ function addToCart(id) {
   const ex = cart.find(x=>x.id===id);
   ex ? ex.qty++ : cart.push({...p, qty:1});
   updateCart();
+  showToast(p.name);
 }
 
 function changeQty(id, d) {
