@@ -753,24 +753,25 @@ document.querySelectorAll(".cat-strip-inner a[data-cat]").forEach(a=>{
     activeFilter = a.dataset.cat;
     const titles = {all:"All Products",fashion:"Fashion & Shoes",phones:"Phones & Tablets",electronics:"Electronics",appliances:"Appliances",beauty:"Health & Beauty",cosmetics:"Cosmetics",deals:"🔥 Today's Deals"};
     document.getElementById("sectionTitle").textContent = titles[activeFilter]||"Products";
-    // Auto-filter from URL param e.g. shop.html?cat=electronics
+    renderProducts();
+  });
+});
+
+// Read ?cat= URL param on page load and activate the right filter
 (function(){
+  const TITLES = {all:"All Products",fashion:"Fashion & Shoes",phones:"Phones & Tablets",electronics:"Electronics",appliances:"Appliances",beauty:"Health & Beauty",cosmetics:"Cosmetics",deals:"🔥 Today's Deals"};
   const params = new URLSearchParams(window.location.search);
   const cat = params.get('cat');
-  if(cat){
+  if(cat && TITLES[cat]){
     const link = document.querySelector('.cat-strip-inner a[data-cat="'+cat+'"]');
     if(link){
       document.querySelectorAll('.cat-strip-inner a').forEach(x=>x.classList.remove('active'));
       link.classList.add('active');
-      activeFilter = cat;
-      const titles = {all:"All Products",fashion:"Fashion & Shoes",phones:"Phones & Tablets",electronics:"Electronics",appliances:"Appliances",beauty:"Health & Beauty",cosmetics:"Cosmetics",deals:"🔥 Today's Deals"};
-      document.getElementById('sectionTitle').textContent = titles[cat]||'Products';
     }
+    activeFilter = cat;
+    document.getElementById('sectionTitle').textContent = TITLES[cat];
   }
 })();
-renderProducts();
-  });
-});
 
 // Search
 document.getElementById("searchInput").addEventListener("input", function(){
